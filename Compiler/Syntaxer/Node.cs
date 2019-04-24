@@ -9,6 +9,7 @@ namespace Syntaxer
 		public string Data { get; protected set; }
 		public int Level { get; protected set; }
 		public List<Node> Children { get; protected set; }
+		public Node Parent{ get; protected set; } 
 		public Node(string data, int level)
 		{
 			if (!String.IsNullOrEmpty(data))
@@ -20,6 +21,7 @@ namespace Syntaxer
 
 		public void Add(Node item)
 		{
+			item.Parent = this;
 			Children.Add(item);
 		}
 
@@ -30,7 +32,7 @@ namespace Syntaxer
 			{
 				result.Append("| ");
 			}
-			result.Append($"{Data}\n");
+			result.Append($"<{Data}>\n");
 			foreach (var item in Children)
 			{
 				result.Append(item.ToString());
