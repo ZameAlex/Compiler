@@ -27,12 +27,12 @@ namespace Shared.Enums
 		Semicolon,
 		Begin,
 		End,
-		Stick,
 		OpenBracket,
 		CloseBracket,
 		Procedure,
 		Colon,
 		Attribute,
-		Variable
+		Variable,
+		Identifier
 	}
 }

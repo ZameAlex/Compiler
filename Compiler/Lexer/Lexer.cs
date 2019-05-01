@@ -7,7 +7,7 @@ using System.IO;
 using Shared.Enums;
 using Shared.Structs;
 
-namespace Lexer
+namespace LexicAnalyzer
 {
 	
 
@@ -53,11 +53,11 @@ namespace Lexer
 			Identifiers = new Dictionary<string, int>();
 			Separators = new Dictionary<string, int>();
 			MultiSeparators = new Dictionary<string, int>();
-			programText = new StreamReader(programTextFilePath);
+			programText = new StreamReader(Path.Combine(@"..\..\..\..\..\Other", programTextFilePath));
 			ErrorList = new List<Error>();
 			LexemString = new List<Lexem>();
 			currentLexem = new StringBuilder();
-			using (StreamReader keywordsTable = new StreamReader(keywordsTableFilePath))
+			using (StreamReader keywordsTable = new StreamReader(Path.Combine(@"..\..\..\..\..\Other", keywordsTableFilePath)))
 			{
 				while (!keywordsTable.EndOfStream)
 				{
@@ -65,7 +65,7 @@ namespace Lexer
 					Keywords.Add(pair[0], Convert.ToInt32(pair[1]));
 				}
 			}
-			using (StreamReader separatorTable = new StreamReader(separTableFilePath))
+			using (StreamReader separatorTable = new StreamReader(Path.Combine(@"..\..\..\..\..\Other", separTableFilePath)))
 			{
 				while (!separatorTable.EndOfStream)
 				{
@@ -73,7 +73,7 @@ namespace Lexer
 					Separators.Add(pair[0], Convert.ToInt32(pair[1]));
 				}
 			}
-			using (StreamReader multiSepar = new StreamReader(multiSeparTableFilePath))
+			using (StreamReader multiSepar = new StreamReader(Path.Combine(@"..\..\..\..\..\Other", multiSeparTableFilePath)))
 			{
 				int i = MS;
 				while (!multiSepar.EndOfStream)

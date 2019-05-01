@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Shared.Enums;
@@ -41,9 +42,6 @@ namespace Shared.Structs
 			{
 				case SyntaxErrorTypes.Semicolon:
 					message.Append(@""";""");
-					break;
-				case SyntaxErrorTypes.Stick:
-					message.Append(@"""|""");
 					break;
 				case SyntaxErrorTypes.OpenBracket:
 					message.Append(@"""(""");
